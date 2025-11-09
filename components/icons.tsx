@@ -30,6 +30,16 @@ export const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
+// FIX: Add the missing GooglePhotosIcon component.
+export const GooglePhotosIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
+        <path fill="#ea4335" d="M12.001.001a11.108 11.108 0 00-3.322.522l.539 3.32a7.785 7.785 0 012.783-.492c4.411 0 8 3.589 8 8a7.785 7.785 0 01-.492 2.783l3.32.539a11.108 11.108 0 00.522-3.322c0-6.075-4.925-11-11-11z"/>
+        <path fill="#4285f4" d="M23.999 12.001a11.108 11.108 0 00-.522 3.322l-3.32-.539a7.785 7.785 0 01.492-2.783c0-4.411-3.589-8-8-8a7.785 7.785 0 01-2.783.492l-.539-3.32a11.108 11.108 0 003.322-.522c6.075 0 11 4.925 11 11z"/>
+        <path fill="#fbbc05" d="M11.999 24a11.108 11.108 0 003.322-.522l-.539-3.32a7.785 7.785 0 01-2.783.492c-4.411 0-8-3.589-8-8a7.785 7.785 0 01.492-2.783l-3.32-.539a11.108 11.108 0 00-.522 3.322c0 6.075 4.925 11 11 11z"/>
+        <path fill="#34a853" d="M.001 11.999A11.108 11.108 0 00.522 8.677l3.32.539a7.785 7.785 0 01-.492 2.783c0 4.411 3.589 8 8 8a7.785 7.785 0 012.783-.492l.539 3.32A11.108 11.108 0 0011.999 24c-6.075 0-11-4.925-11-11z"/>
+    </svg>
+);
+
 export const UserFocusIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -75,6 +85,7 @@ export const FolderOpenIcon = (props: React.SVGProps<SVGSVGElement>) => (
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.991 3.844l.018-.018a2.25 2.25 0 003.183 0l3.422-3.422a2.25 2.25 0 000-3.183l-3.422-3.422a2.25 2.25 0 00-3.183 0l-3.422 3.422a2.25 2.25 0 000 3.183l3.422 3.422z" />
     </svg>
 );
+
 
 export const ArrowLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" {...props}>

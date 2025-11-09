@@ -33,39 +33,62 @@ To run this project on your local machine, follow these steps.
       ```
 
 3.  **Environment Setup:**
-    - The application requires a Gemini API key. You need to make this key available as an environment variable. Create a file named `.env` in the project root:
+    - The application requires a Gemini API key. You need to make this key available as an environment variable. The easiest way is to create a file named `.env.local` in the project root:
       ```
-      GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+      VITE_API_KEY=YOUR_GEMINI_API_KEY
       ```
-    - Replace `YOUR_GEMINI_API_KEY` with your actual key. The `vite.config.ts` file is configured to load this variable.
+    - Replace `YOUR_GEMINI_API_KEY` with your actual key. Vite will automatically load this variable.
 
 4.  **Running the Development Server:**
     - Start the Vite development server:
       ```bash
       npm run dev
       ```
-    - Open your web browser and navigate to the local address provided in the terminal (usually `http://localhost:3000`).
+    - Open your web browser and navigate to the local address provided in the terminal (usually `http://localhost:5173`).
 
-## Manual Deployment to GitHub Pages
+## Deployment to GitHub Pages
 
-You can deploy this application for free using GitHub Pages from your local machine.
+You can easily deploy this application for free using GitHub Pages.
 
-1.  **Set Repository Name in `vite.config.ts`:**
-    - Open the `vite.config.ts` file.
-    - Find the `base` property. Its value **must** be the name of your GitHub repository, enclosed in slashes (e.g., `'/Your-Repo-Name/'`).
-    - **Important:** This must match your repository name exactly for the deployed site to work correctly. The current value is `'/Face-movie-creator/'`.
+### Manual Deployment
 
-2.  **Deploy from Your Local Machine:**
-    - Make sure your `.env` file with your `GEMINI_API_KEY` is present.
-    - Run the deploy script from your terminal:
+1.  **Set Repository Name in `vite.config.js`:**
+    - Open the `vite.config.js` file.
+    - Find the `base` property. Its value should be the name of your GitHub repository, enclosed in slashes (e.g., `'/Your-Repo-Name/'`).
+    - **Important:** This must match your repository name exactly for the deployed site to work correctly.
+
+2.  **Build the Application:**
+    - Run the build script. This will compile the application into a static `dist` folder.
+      ```bash
+      npm run build
+      ```
+
+3.  **Deploy to `gh-pages`:**
+    - Run the deploy script, which will push the contents of the `dist` folder to a special branch named `gh-pages` in your repository.
       ```bash
       npm run deploy
       ```
-    - This command will first build the project and then push the contents of the `dist` folder to a special `gh-pages` branch in your repository.
 
-3.  **Configure GitHub Repository (First Time Only):**
-    - The first time you deploy, you need to configure your repository settings to serve from the `gh-pages` branch.
-    - Go to your repository **Settings** > **Pages**.
+4.  **Configure GitHub Repository:**
+    - Go to your repository settings on GitHub.
+    - Navigate to the "Pages" section in the left sidebar.
     - Under "Build and deployment," set the **Source** to **Deploy from a branch**.
     - Set the **Branch** to `gh-pages` with the folder as `/ (root)`.
     - Save the changes. Your site will be live at the provided URL in a few minutes.
+
+### Automated Deployment (Recommended)
+
+This repository includes a GitHub Actions workflow that automates the entire deployment process.
+
+1.  **Set Repository Name in `vite.config.js`:**
+    - Just like in the manual process, ensure the `base` property in `vite.config.js` matches your repository name. Commit and push this change.
+
+2.  **Push to `main`:**
+    - Simply push your changes to the `main` branch.
+      ```bash
+      git push origin main
+      ```
+    - The GitHub Action will automatically trigger, build your project, and deploy it to the `gh-pages` branch. You can monitor its progress in the "Actions" tab of your repository.
+
+3.  **Configure GitHub Repository (First Time Only):**
+    - The first time you deploy, you still need to configure your repository settings to serve from the `gh-pages` branch as described in step 4 of the manual process. After this initial setup, every subsequent push to `main` will automatically update your live site.

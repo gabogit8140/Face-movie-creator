@@ -132,10 +132,10 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImagesUploaded, isProce
 
   return (
     <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-    <h2 className="text-xl font-semibold mb-4 text-white">1. Add Photos & Manage Project</h2>
-    <div>
+      <h2 className="text-xl font-semibold mb-4 text-white">1. Add Photos & Manage Project</h2>
+      <div>
         {uploadProgress !== null ? (
-            <div className="text-center px-6 py-8">
+             <div className="text-center px-6 py-8">
                 <p className="text-lg font-semibold text-gray-300 truncate px-4">{uploadStatus}</p>
                 <div className="w-full bg-gray-700 rounded-full h-2.5 my-3">
                     <div 
@@ -173,17 +173,17 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImagesUploaded, isProce
             </div>
             </label>
         )}
-    </div>
-    <div className="pt-4 mt-4 border-t border-gray-700 flex flex-col sm:flex-row gap-3">
-        <button onClick={handleLoadClick} disabled={isProcessing} className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border border-gray-600 text-sm font-medium rounded-md shadow-sm text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed">
-            <FolderOpenIcon className="w-5 h-5 mr-2" /> Load Project
-        </button>
-        <input type="file" accept=".FaceMovie" ref={loadInputRef} onChange={handleFileLoad} className="hidden" />
+      </div>
+      <div className="mt-4 pt-4 border-t border-gray-700 flex flex-col sm:flex-row gap-3">
+          <button onClick={handleLoadClick} disabled={isProcessing} className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border border-gray-600 text-sm font-medium rounded-md shadow-sm text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed">
+              <FolderOpenIcon className="w-5 h-5 mr-2" /> Load Project
+          </button>
+          <input type="file" accept=".FaceMovie" ref={loadInputRef} onChange={handleFileLoad} className="hidden" />
 
-        <button onClick={onSaveProject} disabled={!hasImages || isProcessing} className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-800 disabled:bg-gray-500 disabled:cursor-not-allowed">
-            <DownloadIcon className="w-5 h-5 mr-2" /> Download Project
-        </button>
-    </div>
+          <button onClick={onSaveProject} disabled={!hasImages || isProcessing} className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-800 disabled:bg-gray-500 disabled:cursor-not-allowed">
+              <DownloadIcon className="w-5 h-5 mr-2" /> Download Project
+          </button>
+      </div>
     </div>
   );
 };
