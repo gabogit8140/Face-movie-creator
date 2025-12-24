@@ -1,0 +1,5 @@
+{
+  "name": "Face Movie Creator",
+  "description": "An application that creates a dynamic video slideshow from user-uploaded photos, intelligently centering and transitioning between faces to create a 'face movie' effect, reminiscent of Picasa's classic feature.",
+  "requestFramePermissions": []
+}
