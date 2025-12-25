@@ -1,4 +1,4 @@
-const CACHE_NAME = 'face-movie-creator-v2';
+const CACHE_NAME = 'face-movie-creator-v3';
 const URLS_TO_CACHE = [
   './',
   './index.html',
@@ -18,7 +18,21 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim()); // Become available to all pages
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    Promise.all([
+      self.clients.claim(),
+      caches.keys().then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cacheName) => {
+            if (cacheWhitelist.indexOf(cacheName) === -1) {
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      })
+    ])
+  );
 });
 
 self.addEventListener('fetch', (event) => {
